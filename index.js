@@ -1,88 +1,77 @@
-const hamburger = document.querySelector(".hamburger")
-const navMenu = document.querySelector(".nav-menu")
-const icon = document.querySelector('.icon')
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const themeBtn = document.getElementById('theme-toggle');
+    const slider = document.getElementById('testimonial-slider');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const header = document.querySelector('.nav-container');
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-menu a");
 
-/* This is adding an event listener to the icon and hamburger. When the icon is clicked, it toggles the
-open class. When the hamburger is clicked, it toggles the active class. */
-icon.addEventListener('click', () => {
-    icon.classList.toggle("open");
-});
+    // 1. Theme Logic
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.className = `${savedTheme}-theme`;
 
-/* Setting the default background color to white and the default text color to black. */
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active")
-    navMenu.classList.toggle("active")
-})
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const newTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
+            body.className = `${newTheme}-theme`;
+            localStorage.setItem('theme', newTheme);
+        });
+    }
 
-/* This is a forEach loop that is iterating over all the nav-links and adding an event listener to each
-one. When the nav-link is clicked, the hamburger, nav-menu, and icon are all removed of their active
-class. */
-document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    hamburger.classList.remove("active")
-    navMenu.classList.remove("active")
-    icon.classList.remove("open")
-}))
+    // 2. Testimonial Slider
+    if (slider && nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
+        });
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' });
+        });
+    }
 
-// check for saved 'darkMode' in localStorage
-let darkMode = localStorage.getItem('darkMode'); 
+    // 3. Scroll Effects
+    window.addEventListener('scroll', () => {
+        // Header Shrink
+        if (window.scrollY > 100) {
+            header.style.maxWidth = "850px";
+            header.style.padding = "0.5rem 1.2rem";
+        } else {
+            header.style.maxWidth = "1000px";
+            header.style.padding = "0.7rem 1.5rem";
+        }
 
-const darkModeToggle = document.querySelector('.lightswitch');
+        // ScrollSpy (Active Nav Links)
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
 
-const enableDarkMode = () => {
-  // 1. Add the class to the body
-  document.body.classList.add('dark__mode');
-  // 2. Update darkMode in localStorage
-  localStorage.setItem('darkMode', 'enabled');
-  // 3. Set icon to a sun
-  darkModeToggle.src = 'assets/sun.svg'
-}
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
+        });
+    });
 
-const disableDarkMode = () => {
-  // 1. Remove the class from the body
-  document.body.classList.remove('dark__mode');
-  // 2. Update darkMode in localStorage 
-  localStorage.setItem('darkMode', null);
-  // 3. Revert moon icon
-  darkModeToggle.src = 'assets/moon.svg'
-}
- 
-// If the user already visited and enabled darkMode
-// start things off with it on
-if (darkMode === 'enabled') {
-  enableDarkMode();
-}
+    // 4. WhatsApp Form
+    const form = document.getElementById("whatsappForm");
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const biz = document.getElementById("business").value.trim();
+            const msg = document.getElementById("message").value.trim();
 
-// When someone clicks the button
-darkModeToggle.addEventListener('click', () => {
-  // get their darkMode setting
-  darkMode = localStorage.getItem('darkMode'); 
-  
-  // if it not current enabled, enable it
-  if (darkMode !== 'enabled') {
-    enableDarkMode();
-  // if it has been enabled, turn it off  
-  } else {  
-    disableDarkMode(); 
-  }
-});
-
-// WHATSAPP FORM
-document.getElementById("whatsappForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let business = document.getElementById("business").value;
-    let message = document.getElementById("message").value;
-
-    let phone = "2349124270924"; // PUT YOUR NUMBER HERE
-
-    let text = `Hello, my name is ${name}.
-Business: ${business}
-I need a website.
-
-Details:
-${message}`;
-
-    let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
+            const phone = "2349124270924";
+            const text = `*New Project Inquiry* 🚀\n\n*Name:* ${name}\n*Type:* ${biz || 'Not specified'}\n*Message:* ${msg}`;
+            
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+            form.reset();
+        });
+    }
 });
