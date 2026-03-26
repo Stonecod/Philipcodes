@@ -1,193 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philip | Results-Driven Frontend Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philip Balogun | Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body class="dark-theme">
 
-<header class="header">
-    <nav class="nav-container">
-        <a href="#" class="logo">Philip<span>.</span></a>
-        
-        <div class="nav-right">
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact" class="nav-btn">Start a Project</a></li>
-            </ul>
+<!-- ─── HEADER ─────────────────────────────────────────── -->
+<header class="header" role="banner">
+  <nav class="nav-container" aria-label="Main navigation">
+    <a href="#home" class="logo" aria-label="Philip – home">Philip<span class="logo-dot">.</span></a>
 
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-        </div>
-    </nav>
+    <div class="nav-right">
+      <ul class="nav-menu desktop-only" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact" class="nav-btn">Start a Project</a></li>
+      </ul>
+
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle colour theme" title="Toggle theme">
+        <!-- Sun -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="hamburger mobile-only" id="menu-open" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 </header>
 
-<main>
-    <section class="hero" id="home">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="badge">Available for new projects</div>
-                <h1>I build <span class="gradient-text">high-performance</span> digital tools that grow businesses.</h1>
-                <p>Helping brands and communities stand out with clean, custom-coded websites that look premium and function perfectly on every screen.</p>
-                <div class="cta-group">
-                    <a href="#work" class="btn-primary">View My Work</a>
-                    <a href="#contact" class="btn-secondary">Hire Me</a>
-                </div>
-            </div>
+<!-- ─── MOBILE MENU ────────────────────────────────────── -->
+<div class="mobile-menu-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="close-menu" id="menu-close" aria-label="Close navigation menu">&times;</button>
+  <ul class="mobile-nav-links" role="list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="mobile-cta">Start a Project</a></li>
+  </ul>
+</div>
 
-            <div class="hero-image-wrap">
-                <div class="image-inner">
-                    <img src="assets/myphoto.jpg" alt="Philip Balogun">
-                </div>
-                <div class="experience-tag">
-                    <strong>3+</strong>
-                    <span>Major Launches</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ─── MAIN ───────────────────────────────────────────── -->
+<main id="main-content">
 
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="section-label">The Person Behind the Code</h2>
-                    <h3>Bridging the gap between <span class="gradient-text">Design & Performance.</span></h3>
-                    <p>I’m a Frontend Developer based in Nigeria, dedicated to creating web experiences that aren't just "pretty," but are engineered to convert visitors into customers.</p>
-                    <p>With a focus on clean architecture and modern UI/UX principles, I ensure your business has a digital foundation that can scale as you grow.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <strong>100%</strong>
-                            <span>Response Rate</span>
-                        </div>
-                        <div class="stat-item">
-                            <strong>Fast</strong>
-                            <span>Loading Speeds</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-box">
-                    <h4 class="small-label">Technical Toolkit</h4>
-                    <div class="skills-grid">
-                        <div class="skill">Frontend Dev</div>
-                        <div class="skill">UI/UX Design</div>
-                        <div class="skill">React.js</div>
-                        <div class="skill">SEO Optimization</div>
-                        <div class="skill">API Integration</div>
-                    </div>
-                </div>
-            </div>
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="Introduction">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge" aria-label="Status: Available for new projects">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Available for new projects
         </div>
-    </section>
+        <h1>I build <span class="gradient-text">high&#8209;performance</span> digital tools that grow businesses.</h1>
+        <p>Helping brands and communities stand out with clean, custom-coded websites that look premium and function perfectly on every screen.</p>
+        <div class="cta-group">
+          <a href="#work" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-secondary">Hire Me</a>
+        </div>
+      </div>
 
-    <section class="work" id="work">
-        <div class="container">
-            <h2 class="section-label">Selected Work</h2>
-            <div class="bento-grid">
-                <div class="bento-card large">
-                    <img src="assets/campuseatsproject.png" alt="Campus Eats Project" loading="lazy">
-                    <div class="card-info">
-                        <h3>Campus Eats</h3>
-                        <p>A mobile-first ordering system for students. Built for speed.</p>
-                        <a href="#" class="view-project">Live Site →</a>
-                    </div>
-                </div>
-                <div class="bento-card">
-                    <img src="assets/joshuagenerationproject.png" alt="Joshua Generation" loading="lazy">
-                    <div class="card-info">
-                        <h3>Joshua Generation</h3>
-                        <p>Community platform with a modern UI.</p>
-                        <a href="#" class="view-project">Case Study →</a>
-                    </div>
-                </div>
-                <div class="bento-card">
-                    <img src="assets/cocoglamworldproject.png" alt="Coco Glam" loading="lazy">
-                    <div class="card-info">
-                        <h3>Coco Glam</h3>
-                        <p>Luxury e-commerce showcase.</p>
-                        <a href="#" class="view-project">View Site →</a>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-image-wrap">
+        <div class="image-inner">
+          <img src="assets/myphoto.jpg" alt="Philip Balogun, Frontend Developer" width="480" height="600">
         </div>
-    </section>
+        <div class="experience-tag" aria-label="3+ major launches">
+          <strong>3+</strong>
+          <span>Major Launches</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-label">Client Success</h2>
-            <div class="slider-wrapper">
-                <div class="slider-container" id="testimonial-slider">
-                    <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <p>Philip transformed our brand's digital presence. Our loading speeds improved drastically, and our users love the new interface.</p>
-                        <div class="client-info">
-                            <strong>Faith Omowunmi</strong>
-                            <span>Founder, Coco Glam</span>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote-icon">“</div>
-                        <p>Professional, timely, and technically gifted. He took our rough ideas and turned them into a polished, high-functioning web app.</p>
-                        <div class="client-info">
-                            <strong>Samuel Ade</strong>
-                            <span>Campus Eats Admin</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-nav">
-                    <button id="prev-btn">←</button>
-                    <button id="next-btn">→</button>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT -->
+  <section id="about" class="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label" aria-hidden="true">The Person Behind the Code</span>
+          <h2 id="about-heading">Bridging the gap between <span class="gradient-text">Design &amp; Performance.</span></h2>
+          <p>I'm a Frontend Developer based in Nigeria, dedicated to creating web experiences that aren't just "pretty," but are engineered to convert visitors into customers.</p>
+          <p>With a focus on clean architecture and modern UI/UX principles, I ensure your business has a digital foundation that can scale as you grow.</p>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-box">
-                <h2>Let’s build something great.</h2>
-                <p>Ready to start? Send a message and I'll get back to you within 24 hours.</p>
-                <form id="whatsappForm" class="pro-form">
-                    <div class="input-row">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">Project Type</label>
-                            <input type="text" id="business" placeholder="e.g. E-commerce">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" placeholder="Tell me a bit about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary full-width">Send to WhatsApp</button>
-                </form>
+          <div class="stats-grid" aria-label="Key stats">
+            <div class="stat-item">
+              <strong aria-label="100% response rate">100%</strong>
+              <span>Response Rate</span>
             </div>
+            <div class="stat-item">
+              <strong aria-label="Fast loading speeds">Fast</strong>
+              <span>Loading Speeds</span>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>© 2026 Philip Balogun. Crafted with precision.</p>
-            <div class="socials">
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">WhatsApp</a>
-            </div>
+        <div class="skills-box" aria-label="Technical toolkit">
+          <h3 class="small-label">Technical Toolkit</h3>
+          <div class="skills-grid" role="list">
+            <span class="skill" role="listitem">Frontend Dev</span>
+            <span class="skill" role="listitem">UI/UX Design</span>
+            <span class="skill" role="listitem">React.js</span>
+            <span class="skill" role="listitem">SEO Optimization</span>
+            <span class="skill" role="listitem">API Integration</span>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work" aria-labelledby="work-heading">
+    <div class="container">
+      <span class="section-label" aria-hidden="true">Selected Work</span>
+      <h2 id="work-heading" class="sr-only">Projects</h2>
+      <div class="bento-grid">
+
+        <article class="bento-card large">
+          <div class="card-image-wrap">
+            <img src="assets/campuseatsproject.png" alt="Campus Eats — mobile-first food ordering UI" loading="lazy" width="800" height="500">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Web App</span>
+            <h3>Campus Eats</h3>
+            <p>A mobile-first ordering system for students. Built for speed and scale.</p>
+            <a href="https://stonecod.github.io/CampusEats/index.html" class="view-project" aria-label="View Campus Eats live site">Live Site <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="bento-card">
+          <div class="card-image-wrap">
+            <img src="assets/joshuagenerationproject.png" alt="Joshua Generation — community platform" loading="lazy" width="600" height="375">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">Community</span>
+            <h3>Joshua Generation</h3>
+            <p>Community platform with a modern, engaging UI.</p>
+            <a href="https://joshua-generation.vercel.app/" class="view-project" aria-label="Read Joshua Generation case study">Case Study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="bento-card">
+          <div class="card-image-wrap">
+            <img src="assets/cocoglamworldproject.png" alt="Coco Glam World — luxury e-commerce" loading="lazy" width="600" height="375">
+          </div>
+          <div class="card-info">
+            <span class="card-tag">E-commerce</span>
+            <h3>Coco Glam</h3>
+            <p>Luxury e-commerce showcase with premium UX.</p>
+            <a href="https://coco-glam-world.vercel.app/" class="view-project" aria-label="View Coco Glam site">View Site <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <span class="section-label" aria-hidden="true">Client Success</span>
+      <h2 id="testimonials-heading" class="sr-only">Testimonials</h2>
+      <div class="slider-wrapper">
+        <div class="slider-container" id="testimonial-slider" role="region" aria-label="Testimonials slider" aria-live="polite">
+
+          <article class="testimonial-card" aria-label="Testimonial from Faith Omowunmi">
+            <span class="quote-icon" aria-hidden="true">&ldquo;</span>
+            <p>"Philip transformed our brand's digital presence. Our loading speeds improved drastically, and our users love the new interface."</p>
+            <div class="client-info">
+              <strong>Faith Omowunmi</strong>
+              <span>Founder, Coco Glam</span>
+            </div>
+          </article>
+
+          <article class="testimonial-card" aria-label="Testimonial from Samuel Ade">
+            <span class="quote-icon" aria-hidden="true">&ldquo;</span>
+            <p>"Professional, timely, and technically gifted. He took our rough ideas and turned them into a polished, high-functioning web app."</p>
+            <div class="client-info">
+              <strong>Samuel Ade</strong>
+              <span>Campus Eats Admin</span>
+            </div>
+          </article>
+
+        </div>
+        <div class="slider-nav" aria-label="Testimonial navigation">
+          <button id="prev-btn" aria-label="Previous testimonial">←</button>
+          <div class="slider-dots" id="slider-dots" aria-hidden="true"></div>
+          <button id="next-btn" aria-label="Next testimonial">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-box">
+        <span class="section-label" aria-hidden="true">Get In Touch</span>
+        <h2 id="contact-heading">Let's build something great.</h2>
+        <p>Ready to start? Send a message and I'll get back to you within 24 hours.</p>
+
+        <form id="whatsappForm" class="pro-form" novalidate aria-label="Contact form">
+          <div class="input-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Ada Okonkwo" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="business">Project Type</label>
+              <input type="text" id="business" name="business" placeholder="e.g. E-commerce site" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about your project, timeline, and budget…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width submit-btn">
+            <span class="btn-text">Send via WhatsApp</span>
+            <span class="btn-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer-content">
+    <p>© 2026 <strong>Philip Balogun</strong>. Crafted with precision.</p>
+    <nav class="socials" aria-label="Social links">
+      <a href="https://github.com/stonecod" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/philip-balogun-0b2b8b1b4/" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://wa.me/2349124270924" rel="noopener noreferrer" aria-label="Contact on WhatsApp">WhatsApp</a>
+    </nav>
+  </div>
+</footer>
 
 <script src="index.js"></script>
 </body>
