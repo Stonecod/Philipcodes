@@ -169,45 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ── 6. WHATSAPP CONTACT FORM ───────────────────────────── */
+  /* ── 6. CONTACT FORM (FORMSUBMIT) ──────────────────────── */
   if (form) {
     const submitBtn = form.querySelector('.submit-btn');
     const btnText   = form.querySelector('.btn-text');
-    const PHONE     = '2349124270924';
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name    = document.getElementById('name')?.value.trim();
-      const biz     = document.getElementById('business')?.value.trim();
-      const message = document.getElementById('message')?.value.trim();
-
-      if (!name || !message) return;
-
+    form.addEventListener('submit', () => {
       // Loading state
       if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.textContent = 'Opening WhatsApp…';
-
-      const text = [
-        '*New Project Inquiry 🚀*',
-        '',
-        `*Name:* ${name}`,
-        `*Project Type:* ${biz || 'Not specified'}`,
-        `*Message:* ${message}`,
-      ].join('\n');
-
-      window.open(
-        `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`,
-        '_blank',
-        'noopener,noreferrer'
-      );
-
-      form.reset();
-
-      setTimeout(() => {
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = 'Send via WhatsApp';
-      }, 3000);
+      if (btnText) btnText.textContent = 'Sending…';
     });
   }
 
