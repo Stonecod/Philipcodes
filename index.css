@@ -924,6 +924,8 @@ section {
   padding-block: 0.5rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 .slider-container::-webkit-scrollbar { display: none; }
 
